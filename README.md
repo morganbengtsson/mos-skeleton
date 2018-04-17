@@ -18,3 +18,11 @@ cmake ..
 make
 ./mos-skeleton
 ´´´
+
+On Windows, create a build directory and run CMake from there:
+
+```
+cmake ..
+```
+
+An appropriate Visual studio solution should then be generated.
