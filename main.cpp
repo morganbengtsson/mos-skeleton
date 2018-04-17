@@ -12,7 +12,7 @@
 #include <mos/io/window.hpp>
 
 int main() {
-  glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
+  glm::vec2 resolution = glm::vec2(1920, 1080) / 2.4f;
   mos::io::Window window("Skeleton", resolution);
   window.key_func = [&](int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
