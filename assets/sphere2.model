@@ -1,0 +1,1 @@
+{"name": "sphere2", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.5, 0.5, 0.25, 1.0], "mesh": "sphere.mesh", "material": "roughness1.material", "lit": true, "models": []}

@@ -1,6 +1,5 @@
 build*
 cmake*
-assets/
 .idea*
 
 
