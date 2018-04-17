@@ -11,13 +11,13 @@ git clone --recurse-submodules https://github.com/morganbengtsson/mos-skeleton
 
 To build and run the project on Linux. Make a build directory, run cmake and then make:
 
-´´´bash
+```bash
 mkdir build
 cd build
 cmake ..
 make
 ./mos-skeleton
-´´´
+```
 
 On Windows, create a build directory and run CMake from there:
 
