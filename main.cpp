@@ -44,7 +44,7 @@ int main() {
                           glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
 
   mos::gfx::EnvironmentLight environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
-                                               glm::vec3(1.01f, 1.01f, 2.0f));
+                                               glm::vec3(1.01f, 1.01f, 2.01f));
 
   mos::gfx::Scene scene(
       models.begin(),
