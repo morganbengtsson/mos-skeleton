@@ -26,10 +26,9 @@ int main() {
   auto source = mos::text("assets/skeleton.level");
   auto doc = nlohmann::json::parse(source);
   for (auto &value : doc) {
-    if (value["model"] != "" && value["model"] != nullptr) {
-      mos::gfx::Model model = gfx_assets.model(value["model"]);
+      std::cout << value << std::endl;
+      mos::gfx::Model model = gfx_assets.model(value);
       models.push_back(model);
-    }
   }
 
   mos::gfx::Renderer gfx_renderer;

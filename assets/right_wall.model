@@ -1,1 +1,1 @@
-{"name": "right_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "right_wall.mesh", "material": "green.material", "lit": true, "models": []}
+{"name": "right_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "right_wall.mesh", "material": "green.material", "children": [], "type": "model", "id": 140191019666440}
