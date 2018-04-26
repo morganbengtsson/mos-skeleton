@@ -10,6 +10,8 @@
 #include <mos/gfx/scene.hpp>
 #include <mos/util.hpp>
 #include <mos/io/window.hpp>
+#include <string>
+#include <filesystem/path.h>
 
 int main() {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 2.4f;
@@ -22,13 +24,20 @@ int main() {
 
   mos::gfx::Assets gfx_assets;
   std::vector<mos::gfx::Model> models;
+  std::vector<mos::gfx::EnvironmentLight> environment_lights;
 
   auto source = mos::text("assets/skeleton.level");
   auto doc = nlohmann::json::parse(source);
   for (auto &value : doc) {
-      std::cout << value << std::endl;
-      mos::gfx::Model model = gfx_assets.model(value);
-      models.push_back(model);
+    auto path = filesystem::path(std::string(value));
+    auto type = path.extension();
+      if (type == "model") {
+        mos::gfx::Model model = gfx_assets.model(value);
+        models.push_back(model);
+      }
+      else if (type == "environment_light") {
+        environment_lights.push_back(gfx_assets.environment_light(value));
+      }
   }
 
   mos::gfx::Renderer gfx_renderer;
@@ -50,7 +59,7 @@ int main() {
       models.end(),
       camera,
       light,
-      environment_light,
+      environment_lights.back(),
       mos::gfx::Fog(glm::vec3(0.0f),
                     glm::vec3(0.0f), 0.0f));
 
