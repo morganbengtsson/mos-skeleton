@@ -1,0 +1,1 @@
+{"albedo": [1.0, 1.0, 1.0], "opacity": 1.0, "roughness": 1.0, "metallic": 0.0, "emission": [0.0, 0.0, 0.0], "ambient_occlusion": 1.0, "albedo_map": "Ground04_col.png", "emission_map": null, "normal_map": "Ground04_nrm.png", "metallic_map": null, "roughness_map": "Ground04_rgh.png", "ambient_occlusion_map": "Ground04_AO.png"}

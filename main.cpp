@@ -12,9 +12,10 @@
 #include <mos/io/window.hpp>
 #include <string>
 #include <filesystem/path.h>
+#include <glm/gtc/color_space.hpp>
 
 int main() {
-  glm::vec2 resolution = glm::vec2(1920, 1080) / 2.4f;
+  glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
   mos::io::Window window("Skeleton", resolution);
   window.key_func = [&](int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
@@ -25,6 +26,8 @@ int main() {
   mos::gfx::Assets gfx_assets;
   std::vector<mos::gfx::Model> models;
   std::vector<mos::gfx::EnvironmentLight> environment_lights;
+
+  mos::gfx::Light light;
 
   auto source = mos::text("assets/skeleton.level");
   auto doc = nlohmann::json::parse(source);
@@ -38,16 +41,15 @@ int main() {
       else if (type == "environment_light") {
         environment_lights.push_back(gfx_assets.environment_light(value));
       }
+      else if (type == "light") {
+        light = gfx_assets.light(path.str());
+      }
   }
 
-  mos::gfx::Renderer gfx_renderer;
+  mos::gfx::Renderer gfx_renderer(glm::vec4(0.0f), resolution);
 
-  mos::gfx::Light light(glm::vec3(0.0f, 0.0f, 1.9f),
-                        glm::vec3(0.0f, 0.0f, 0.0f),
-                        1.3f,
-                        glm::vec3(1.0f, 0.84f, 0.67f), 100.0f);
 
-  mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.0f),
+  mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
                           glm::vec3(0.0f, 0.0f, 1.0),
                           glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
 
@@ -69,16 +71,17 @@ int main() {
 
   while (!window.close()) {
     const auto start_time = std::chrono::high_resolution_clock::now();
-    scene.models[5].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.5f, 0.0f, 0.25f));
-    scene.models[6].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(-0.5f, 0.0f, 0.25f));
-    scene.models[7].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, 0.25f));
-    scene.models[8].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.5f, 0.25f));
+
+    //scene.models[5].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.5f, 0.0f, 0.25f));
+    //scene.models[6].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(-0.5f, 0.0f, 0.25f));
+    //scene.models[7].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, 0.25f));
+    //scene.models[8].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.5f, 0.25f));
 
     auto center = scene.light.center();
     center.x = glm::sin(time * 0.5f);
     scene.light.center(center);
 
-    gfx_renderer.render({scene}, glm::vec4(0.05f), resolution);
+    gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
     window.poll_events();
     window.swap_buffers();
     frame_time = std::chrono::high_resolution_clock::now() - start_time;

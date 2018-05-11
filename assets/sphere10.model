@@ -1,0 +1,1 @@
+{"name": "sphere10", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.5999999642372131, 1.4901161193847656e-08, 0.25, 1.0], "mesh": "sphere0.mesh", "material": "default10.material", "children": [], "type": "model", "id": 140667635624456, "light": null}
