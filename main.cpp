@@ -24,7 +24,7 @@ int main() {
   };
 
   mos::gfx::Assets gfx_assets;
-  std::vector<mos::gfx::Model> models;
+  mos::gfx::Models models;
   std::vector<mos::gfx::EnvironmentLight> environment_lights;
 
   mos::gfx::Light light;
@@ -56,9 +56,7 @@ int main() {
   mos::gfx::EnvironmentLight environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
                                                glm::vec3(1.01f, 1.01f, 2.01f));
 
-  mos::gfx::Scene scene(
-      models.begin(),
-      models.end(),
+  mos::gfx::Scene scene(models,
       camera,
       light,
       environment_lights.back(),
