@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 # mos
 add_subdirectory(externals/mos)
-include_directories(externals/mos/include)
 
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} mos)
+target_include_directories(${PROJECT_NAME} PUBLIC externals/mos/include)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
