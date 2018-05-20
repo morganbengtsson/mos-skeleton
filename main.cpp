@@ -32,7 +32,8 @@ int main() {
   auto source = mos::text("assets/skeleton.level");
   auto doc = nlohmann::json::parse(source);
   for (auto &value : doc) {
-    auto path = filesystem::path(std::string(value));
+	 std::string t = value;
+    auto path = filesystem::path(t);
     auto type = path.extension();
       if (type == "model") {
         mos::gfx::Model model = gfx_assets.model(value);
@@ -59,9 +60,9 @@ int main() {
   mos::gfx::Scene scene(models,
       camera,
       light,
-      environment_lights.back(),
-      mos::gfx::Fog(glm::vec3(0.0f),
-                    glm::vec3(0.0f), 0.0f));
+	  mos::gfx::Fog(glm::vec3(0.0f),
+		  glm::vec3(0.0f), 0.0f),
+      environment_lights.back());
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
