@@ -57,6 +57,8 @@ int main() {
   mos::gfx::EnvironmentLight environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
                                                glm::vec3(1.01f, 1.01f, 2.01f));
 
+  gfx_renderer.load(models);
+
   mos::gfx::Scene scene(models,
       camera,
       light,
