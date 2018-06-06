@@ -1,1 +1,1 @@
-{"name": "sphere02", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.20000001788139343, -0.4999999701976776, 0.25, 1.0], "mesh": "sphere0.mesh", "material": "default02.material", "children": [], "type": "model", "id": 140667635622920, "light": null}
+{"name": "sphere02", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.20000001788139343, -0.4999999701976776, 0.25, 1.0], "mesh": "sphere0.mesh", "material": "default02.material", "children": [], "type": "model", "id": 140272623175176, "light": null}

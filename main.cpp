@@ -15,7 +15,7 @@
 #include <glm/gtc/color_space.hpp>
 
 int main() {
-  glm::vec2 resolution = glm::vec2(1920, 1080) / 1.0f;
+  glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
   mos::io::Window window("Skeleton", resolution);
   window.key_func = [&](int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
@@ -79,7 +79,7 @@ int main() {
     //scene.models[8].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.5f, 0.25f));
 
     auto center = scene.light.center();
-    center.x = glm::sin(time * 0.5f);
+    //center.x = glm::sin(time * 0.5f);
     scene.light.center(center);
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
