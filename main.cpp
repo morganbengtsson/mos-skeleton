@@ -27,7 +27,7 @@ int main() {
   mos::gfx::Models models;
   std::vector<mos::gfx::EnvironmentLight> environment_lights;
 
-  mos::gfx::Light light;
+  std::vector<mos::gfx::Light> lights;
 
   auto source = mos::text("assets/skeleton.level");
   auto doc = nlohmann::json::parse(source);
@@ -43,7 +43,7 @@ int main() {
         environment_lights.push_back(gfx_assets.environment_light(value));
       }
       else if (type == "light") {
-        light = gfx_assets.light(path.str());
+        lights.push_back(gfx_assets.light(path.str()));
       }
   }
 
@@ -61,7 +61,7 @@ int main() {
 
   mos::gfx::Scene scene(models,
       camera,
-      light,
+      {lights[0], lights[1]},
 	  mos::gfx::Fog(glm::vec3(0.0f),
 		  glm::vec3(0.0f), 0.0f),
       environment_lights.back());
@@ -78,9 +78,9 @@ int main() {
     //scene.models[7].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.5f, 0.25f));
     //scene.models[8].transform = glm::rotate(glm::mat4(1.0f), time, glm::vec3(0.0f, 0.0f, 1.0f)) * glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -0.5f, 0.25f));
 
-    auto center = scene.light.center();
+    auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
-    scene.light.center(center);
+    scene.lights[0].center(center);
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
     window.poll_events();

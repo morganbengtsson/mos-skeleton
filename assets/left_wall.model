@@ -1,1 +1,1 @@
-{"name": "left_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "left_wall.mesh", "material": "red.material", "children": [], "type": "model", "id": 140272623169032, "light": null}
+{"name": "left_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "left_wall.mesh", "material": "red.material", "children": [], "type": "model", "id": 139690624607752, "light": null}
