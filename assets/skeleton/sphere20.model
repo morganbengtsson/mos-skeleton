@@ -1,0 +1,1 @@
+{"name": "sphere20", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.5999999642372131, 0.5, 0.25, 1.0], "mesh": "skeleton/sphere0.mesh", "material": "skeleton/default20.material", "children": [], "type": "model", "id": 140107439425032, "light": null}

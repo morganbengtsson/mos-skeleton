@@ -1,0 +1,1 @@
+{"name": "ceiling", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "skeleton/ceiling.mesh", "material": "skeleton/default.material", "children": [], "type": "model", "id": 140107439405064, "light": null}

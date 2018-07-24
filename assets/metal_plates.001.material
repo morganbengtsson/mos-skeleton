@@ -1,1 +1,0 @@
-{"albedo": [1.0, 1.0, 1.0], "opacity": 1.0, "roughness": 1.0, "metallic": 0.0, "emission": [0.0, 0.0, 0.0], "ambient_occlusion": 1.0, "albedo_map": "MetalPlates02_col.png", "emission_map": null, "normal_map": "MetalPlates02_nrm.png", "metallic_map": "MetalPlates02_met.png", "roughness_map": "MetalPlates02_rgh.png", "ambient_occlusion_map": null}

@@ -1,1 +1,0 @@
-{"name": "back_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "back_wall.mesh", "material": "default.material", "children": [], "type": "model", "id": 139690446149640, "light": null}
