@@ -1,1 +1,0 @@
-{"name": "floor", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "skeleton/floor.mesh", "material": "skeleton/default.material", "children": [], "type": "model", "id": 139710779994120, "light": null}
