@@ -1,5 +1,6 @@
 build*
 cmake*
 .idea*
+.vs*
 *.blend1
 
