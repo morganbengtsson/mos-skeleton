@@ -1,1 +1,0 @@
-{"name": "travelator_wheel.002", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.25, 0.0, 0.0, 1.0], "mesh": "travelator/meshes/Cylinder_bevel.mesh", "material": "travelator/materials/travelator_wheel.material", "children": [], "type": "model", "id": 140000970792968, "light": null}

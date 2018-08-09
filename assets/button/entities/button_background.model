@@ -1,1 +1,0 @@
-{"name": "button_background", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "button/meshes/button_background.mesh", "material": "button/materials/button.material", "children": [], "type": "model", "id": 140001155907592, "light": null}

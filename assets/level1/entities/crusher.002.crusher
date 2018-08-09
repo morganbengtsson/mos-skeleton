@@ -1,1 +1,0 @@
-{"name": "crusher.002", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 5.0, 1.0], "mesh": null, "material": null, "children": ["crusher/entities/crusher.model", "crusher/entities/spikes.model"], "type": "crusher", "id": 140000970258440, "light": null, "entity_type": "crusher"}

@@ -1,1 +1,0 @@
-{"name": "static.003", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -12.0, 0.0, 0.0, 1.0], "mesh": "level1/meshes/static_boolean_bevel.mesh", "material": "level1/materials/Material.material", "children": [], "type": "static", "id": 140000970281480, "light": null, "entity_type": "static"}

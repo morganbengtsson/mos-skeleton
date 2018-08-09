@@ -1,1 +1,0 @@
-{"name": "cloud.004", "transform": [5.0, 0.0, 0.0, 0.0, 0.0, 1.9793795347213745, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, -28.47980499267578, 4.511195182800293, -5.71799898147583, 1.0], "mesh": "level1/meshes/cloud.mesh", "material": "level1/materials/cloud.material", "children": [], "type": "cloud", "id": 140000971339784, "light": null, "entity_type": "cloud"}

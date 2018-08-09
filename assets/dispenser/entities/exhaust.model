@@ -1,1 +1,0 @@
-{"name": "exhaust", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "dispenser/meshes/pipe.001_bevel.mesh", "material": "dispenser/materials/dispenser.material", "children": [], "type": "model", "id": 140000970766856, "light": null}

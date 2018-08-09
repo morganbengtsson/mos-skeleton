@@ -1,1 +1,0 @@
-{"name": "dispenser", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -13.0, 0.0, 7.0, 1.0], "mesh": null, "material": null, "children": ["dispenser/entities/button.button", "dispenser/entities/pipe.model", "dispenser/entities/exhaust.model"], "type": "dispenser", "id": 140000970259976, "light": null, "entity_type": "dispenser"}

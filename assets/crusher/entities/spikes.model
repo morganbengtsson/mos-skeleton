@@ -1,1 +1,0 @@
-{"name": "spikes", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.675000011920929, -0.675000011920929, -0.8500000238418579, 1.0], "mesh": "crusher/meshes/spikes_bevel_array_array.001.mesh", "material": "crusher/materials/spikes.material", "children": [], "type": "model", "id": 140001155926024, "light": null}

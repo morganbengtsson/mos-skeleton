@@ -1,1 +1,0 @@
-{"name": "crusher", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -3.725290298461914e-08, -3.725290298461914e-08, 0.15000000596046448, 1.0], "mesh": "crusher/meshes/crusher_bevel.mesh", "material": "crusher/materials/crusher.material", "children": [], "type": "model", "id": 140001155924488, "light": null}
