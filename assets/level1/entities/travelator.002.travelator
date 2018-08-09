@@ -1,0 +1,1 @@
+{"name": "travelator.002", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -8.564026832580566, -2.0521356702829507e-07, 1.4532477855682373, 1.0], "mesh": null, "material": null, "children": ["travelator/entities/travelator_chassi.model"], "type": "travelator", "id": 140000970296840, "light": null, "entity_type": "travelator"}

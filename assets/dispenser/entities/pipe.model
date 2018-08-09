@@ -1,0 +1,1 @@
+{"name": "pipe", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "dispenser/meshes/pipe_bevel_array.mesh", "material": "dispenser/materials/dispenser.material", "children": [], "type": "model", "id": 140000970765320, "light": null}

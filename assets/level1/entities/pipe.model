@@ -1,0 +1,1 @@
+{"name": "pipe", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -8.228706359863281, 13.999900817871094, -5.2271552085876465, 1.0], "mesh": "level1/meshes/pipe.001_array_curve.mesh", "material": "level1/materials/pipe1.material", "children": [], "type": "model", "id": 140000970263048, "light": null}

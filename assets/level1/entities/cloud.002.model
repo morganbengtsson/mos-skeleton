@@ -1,0 +1,1 @@
+{"name": "cloud.002", "transform": [5.0, 0.0, 0.0, 0.0, 0.0, 1.9793795347213745, 0.0, 0.0, 0.0, 0.0, 0.5, 0.0, -40.57331466674805, -11.029611587524414, 1.8404440879821777, 1.0], "mesh": "level1/meshes/cloud.mesh", "material": "level1/materials/cloud.material", "children": [], "type": "model", "id": 140000971336712, "light": null, "prop": 1.0}

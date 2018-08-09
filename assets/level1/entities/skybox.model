@@ -1,0 +1,1 @@
+{"name": "skybox", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "level1/meshes/skybox.mesh", "material": "level1/materials/environment_skybox.material", "children": [], "type": "model", "id": 140000970273800, "light": null}
