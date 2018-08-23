@@ -51,7 +51,7 @@ int main() {
 
 
   mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
-                          glm::vec3(0.0f, 0.0f, 1.0),
+                          glm::vec3(0.0f, 0.0f, 0.85f),
                           glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
 
   mos::gfx::EnvironmentLight environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
