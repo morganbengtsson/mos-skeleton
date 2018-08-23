@@ -36,14 +36,14 @@ int main() {
     auto path = filesystem::path(t);
     auto type = path.extension();
       if (type == "model") {
-        mos::gfx::Model model = gfx_assets.model(value);
+        mos::gfx::Model model = mos::gfx::Model(gfx_assets, path.str());
         models.push_back(model);
       }
       else if (type == "environment_light") {
-        environment_lights.push_back(gfx_assets.environment_light(value));
+        environment_lights.push_back(mos::gfx::EnvironmentLight("assets/", path.str()));
       }
       else if (type == "light") {
-        lights.push_back(gfx_assets.light(path.str()));
+        lights.push_back(mos::gfx::Light("assets/", path.str()));
       }
   }
 
