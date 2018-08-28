@@ -1,1 +1,1 @@
-{"name": "right_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "skeleton/meshes/right_wall.mesh", "material": "skeleton/materials/green.material", "children": [], "type": "model", "id": 140210854860296, "light": null}
+{"name": "right_wall", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0], "mesh": "skeleton/meshes/right_wall.mesh", "material": "skeleton/materials/green.material", "children": [], "type": "model", "id": 140116345390600, "light": null}
