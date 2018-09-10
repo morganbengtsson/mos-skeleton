@@ -25,7 +25,7 @@ int main() {
 
   mos::gfx::Assets gfx_assets;
   mos::gfx::Models models;
-  std::vector<mos::gfx::EnvironmentLight> environment_lights;
+  std::vector<mos::gfx::Environment_light> environment_lights;
 
   std::vector<mos::gfx::Light> lights;
 
@@ -40,7 +40,7 @@ int main() {
         models.push_back(model);
       }
       else if (type == "environment_light") {
-        environment_lights.push_back(mos::gfx::EnvironmentLight("assets/", path.str()));
+        environment_lights.push_back(mos::gfx::Environment_light("assets/", path.str()));
       }
       else if (type == "light") {
         lights.push_back(mos::gfx::Light("assets/", path.str()));
@@ -54,7 +54,7 @@ int main() {
                           glm::vec3(0.0f, 0.0f, 0.85f),
                           glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
 
-  mos::gfx::EnvironmentLight environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
+  mos::gfx::Environment_light environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
                                                glm::vec3(2.0f));
 
   gfx_renderer.load(models);
