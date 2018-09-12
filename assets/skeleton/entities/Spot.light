@@ -1,1 +1,1 @@
-{"name": "Spot", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.899999976158142, 1.0], "mesh": null, "material": null, "children": [], "type": "light", "id": 140116345410568, "light": "skeleton/light_data/Spot.light_data"}
+{"name": "Spot", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.899999976158142, 1.0], "mesh": null, "material": null, "children": [], "type": "light", "id": 140120190443528, "light": "skeleton/light_data/Spot.light_data"}
