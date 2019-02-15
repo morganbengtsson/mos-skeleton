@@ -1,0 +1,1 @@
+{"name": "Cube", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.21101133525371552, 0.036057014018297195, 0.6862554550170898, 1.0], "mesh": "skeleton/meshes/Cube_subsurf_displace.mesh", "material": "skeleton/materials/transparent.material", "speaker": null, "children": [], "type": "model", "id": 139810684506632, "light": null}
