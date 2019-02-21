@@ -1,0 +1,1 @@
+{"albedo": [0.20507875084877014, 0.06480327248573303, 0.0368894599378109], "opacity": 1.0, "strength": 1.0, "roughness": 0.30000001192092896, "metallic": 1.0, "emission": [0.0, 0.0, 0.0], "ambient_occlusion": 1.0, "albedo_map": null, "emission_map": null, "normal_map": null, "metallic_map": null, "roughness_map": null, "ambient_occlusion_map": "crusher/textures/crusher_ao.png"}

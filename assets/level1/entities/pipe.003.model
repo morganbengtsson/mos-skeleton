@@ -1,0 +1,1 @@
+{"name": "pipe.003", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -24.22870635986328, 19.999900817871094, -24.227155685424805, 1.0], "mesh": "level1/meshes/pipe.003_array_curve_displace.mesh", "material": "level1/materials/small_pipe.material", "speaker": null, "children": [], "type": "model", "id": 139816314636808, "light": null}

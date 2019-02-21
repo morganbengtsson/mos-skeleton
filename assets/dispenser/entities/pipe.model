@@ -1,0 +1,1 @@
+{"name": "pipe", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 1.0], "mesh": "dispenser/meshes/pipe_subsurf_array_displace_bevel.mesh", "material": "dispenser/materials/dispenser.material", "speaker": null, "children": [], "type": "model", "id": 139816101475336, "light": null}

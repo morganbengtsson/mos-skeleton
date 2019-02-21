@@ -1,0 +1,1 @@
+{"name": "metal_box", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0], "mesh": null, "material": null, "speaker": null, "children": ["metal_box/entities/metal_box.model"], "type": "static", "id": 139816314626056, "light": null, "entity_type": "static"}

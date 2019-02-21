@@ -1,0 +1,1 @@
+{"name": "yellow_prism", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "yellow_prism/meshes/yellow_prism_bevel.mesh", "material": "yellow_prism/materials/yellow_prism.material", "speaker": null, "children": [], "type": "model", "id": 139816143497224, "light": null}

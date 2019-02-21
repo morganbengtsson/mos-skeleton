@@ -1,0 +1,1 @@
+{"albedo": [0.6272853016853333, 0.5358439087867737, 0.421757310628891], "opacity": 1.0, "strength": 1.0, "roughness": 0.75, "metallic": 1.0, "emission": [0.0, 0.0, 0.0], "ambient_occlusion": 1.0, "albedo_map": null, "emission_map": null, "normal_map": null, "metallic_map": null, "roughness_map": "travelator/textures/travelator_roughness.png", "ambient_occlusion_map": null}

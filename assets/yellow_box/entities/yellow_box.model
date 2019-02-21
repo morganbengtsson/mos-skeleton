@@ -1,0 +1,1 @@
+{"name": "yellow_box", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "yellow_box/meshes/yellow_box_boolean_bevel.mesh", "material": "yellow_box/materials/yellow_box.material", "speaker": null, "children": [], "type": "model", "id": 139816143484936, "light": null}
