@@ -1,1 +1,0 @@
-{"name": "exhaust", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "dispenser/meshes/exhaust_subsurf_displace_bevel.mesh", "material": "dispenser/materials/dispenser.material", "speaker": null, "children": ["dispenser/entities/arrow.model"], "type": "model", "id": 139816101476872, "light": null}

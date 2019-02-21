@@ -1,1 +1,0 @@
-{"name": "nut.003", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.7430965900421143, -1.0746631622314453, -0.7538064122200012, 1.0], "mesh": "metal_box/meshes/nut.003_bevel.mesh", "material": "metal_box/materials/screw.material", "speaker": null, "children": [], "type": "model", "id": 139816101447688, "light": null}

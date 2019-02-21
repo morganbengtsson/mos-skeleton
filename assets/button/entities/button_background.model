@@ -1,1 +1,0 @@
-{"name": "button_background", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "mesh": "button/meshes/button_background.mesh", "material": "button/materials/button.material", "speaker": null, "children": [], "type": "model", "id": 139816101484552, "light": null}

@@ -1,1 +1,0 @@
-{"name": "button", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 2.0, 0.0, 0.0, 1.0], "mesh": null, "material": null, "speaker": null, "children": ["button/entities/button_background.model"], "type": "button", "id": 139816139696136, "light": null, "entity_type": "button"}

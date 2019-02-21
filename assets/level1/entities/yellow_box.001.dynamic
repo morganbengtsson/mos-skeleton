@@ -1,1 +1,0 @@
-{"name": "yellow_box.001", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -5.0, 0.0, -2.0, 1.0], "mesh": null, "material": null, "speaker": null, "children": ["yellow_box/entities/yellow_box.model"], "type": "dynamic", "id": 139816315245576, "light": null, "entity_type": "dynamic"}

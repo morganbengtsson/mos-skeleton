@@ -1,1 +1,0 @@
-{"name": "Suzanne", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.7153739929199219, -0.2094573974609375, 2.9275026321411133, 1.0], "mesh": "level1/meshes/Suzanne_subsurf.mesh", "material": "level1/materials/Material.material", "speaker": null, "children": [], "type": "model", "id": 139816101427720, "light": null}
