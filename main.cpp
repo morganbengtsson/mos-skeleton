@@ -25,6 +25,9 @@ int main() {
 
   mos::gfx::Assets gfx_assets;
   mos::gfx::Models models;
+  mos::gfx::Text text("Text", mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"), glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, 0.5f)));
+  text.opacity(1.0f);
+
   std::vector<mos::gfx::Environment_light> environment_lights;
 
   std::vector<mos::gfx::Light> lights;
@@ -57,6 +60,7 @@ int main() {
   mos::gfx::Environment_light environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
                                                glm::vec3(2.0f));
 
+  models.push_back(text.model());
   gfx_renderer.load(models);
 
   mos::gfx::Scene scene(models,
