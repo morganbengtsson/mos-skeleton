@@ -68,7 +68,7 @@ int main() {
 
   mos::gfx::Scene scene(models,
       camera,
-      {lights[0], lights[1]},
+      {lights.at(0)},
 	  mos::gfx::Fog(glm::vec3(0.0f),
 		  glm::vec3(0.0f), 0.0f),
   {environment_lights.back(), environment_light});
