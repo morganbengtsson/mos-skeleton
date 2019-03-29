@@ -1,0 +1,1 @@
+{"name": "sphere22.003", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.19999995827674866, 0.5, 0.6499999761581421, 1.0], "mesh": "skeleton/meshes/sphere22.003_displace.mesh", "material": "skeleton/materials/rock.material", "speaker": null, "children": [], "type": "model", "id": 139832855267336, "light": null}
