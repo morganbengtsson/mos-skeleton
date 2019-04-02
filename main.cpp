@@ -57,18 +57,14 @@ int main() {
                           glm::vec3(0.0f, 0.0f, 0.85f),
                           glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
 
-  mos::gfx::Environment_light environment_light(glm::vec3(0.0f, 0.0f, 1.5f),
-                                               glm::vec3(2.0f));
-
   models.push_back(text.model());
   gfx_renderer.load(models);
 
   mos::gfx::Scene scene(models,
-      camera,
-      {lights.at(0)},
-	  mos::gfx::Fog(glm::vec3(0.0f),
-		  glm::vec3(0.0f), 0.0f),
-  {environment_lights.back(), environment_light});
+                        camera,
+                        {lights.at(0)},
+                        mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
+                        {environment_lights.back()});
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
