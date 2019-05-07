@@ -76,7 +76,7 @@ int main() {
     auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
     center.y = glm::sin(time * 0.2f);
-    scene.lights[0].center(center);
+    //scene.lights[0].center(center);
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
     window.poll_events();
