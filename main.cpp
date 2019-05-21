@@ -39,7 +39,7 @@ int main() {
     auto path = filesystem::path(t);
     auto type = path.extension();
       if (type == "model") {
-        mos::gfx::Model model = mos::gfx::Model(gfx_assets, path.str());
+        mos::gfx::Model model = mos::gfx::Model(path.str(), gfx_assets);
         models.push_back(model);
       }
       else if (type == "environment_light") {
@@ -62,9 +62,9 @@ int main() {
 
   mos::gfx::Scene scene(models,
                         camera,
-                        {lights.at(0)},
+                        {lights.at(0), mos::gfx::Light(), mos::gfx::Light(), mos::gfx::Light()},
                         mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
-                        {environment_lights.back()});
+                        {environment_lights.back(), mos::gfx::Environment_light()});
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
