@@ -25,9 +25,13 @@ int main() {
 
   mos::gfx::Assets gfx_assets;
   mos::gfx::Models models;
-  mos::gfx::Text text("MOS", mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"), glm::translate(glm::mat4(1.0f), glm::vec3(-0.4, 0.6f, 1.5f))
-                      * glm::rotate(glm::mat4(1.0f), glm::half_pi<float>(), glm::vec3(1.0f, 0.0f, 0.0f))
-                      * glm::scale(glm::mat4(1.0f), glm::vec3(0.5f)));
+  mos::gfx::Text text("MOS",
+                      mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"),
+                      glm::translate(glm::mat4(1.0f), glm::vec3(-0.4, 0.6f, 1.0f))
+                          * glm::rotate(glm::mat4(1.0f),
+                                        glm::half_pi<float>(),
+                                        glm::vec3(1.0f, 0.0f, 0.0f))
+                          * glm::scale(glm::mat4(1.0f), glm::vec3(0.5f)));
 
   std::vector<mos::gfx::Environment_light> environment_lights;
   std::vector<mos::gfx::Light> lights;
@@ -77,7 +81,7 @@ int main() {
     auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
     center.y = glm::sin(time * 0.2f);
-    //scene.lights[0].center(center);
+    scene.lights[0].center(center);
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
     window.poll_events();
