@@ -47,10 +47,10 @@ int main() {
         models.push_back(model);
       }
       else if (type == "environment_light") {
-        environment_lights.push_back(mos::gfx::Environment_light("assets/", path.str()));
+        environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.str()));
       }
       else if (type == "light") {
-        lights.push_back(mos::gfx::Light("assets/", path.str()));
+        lights.emplace_back(mos::gfx::Light("assets/", path.str()));
       }
   }
 
