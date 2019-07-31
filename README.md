@@ -1,6 +1,7 @@
 ![Screenshot](https://github.com/morganbengtsson/mos-skeleton/blob/master/screenshot.png)
 
 # MOS Skeleton
+[![Build Status](https://travis-ci.org/morganbengtsson/mos-skeleton.svg?branch=master)](https://travis-ci.org/morganbengtsson/mos-skeleton)
 
 Example project for the [MOS library](https://github.com/morganbengtsson/mos). Provides a minimal setup, for getting a
 window with some graphics and sound up and running.
