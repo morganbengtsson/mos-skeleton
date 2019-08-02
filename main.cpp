@@ -8,7 +8,7 @@
 #include <mos/gfx/light.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/scene.hpp>
-#include <mos/aud/buffer_sources.hpp>
+#include <mos/aud/speaker.hpp>
 #include <mos/aud/renderer.hpp>
 #include <mos/util.hpp>
 #include <mos/io/window.hpp>
@@ -28,7 +28,7 @@ int main() {
   mos::gfx::Assets gfx_assets;
   mos::aud::Assets aud_assets;
   mos::gfx::Models models;
-  mos::aud::Buffer_sources speakers;
+  mos::aud::Speakers speakers;
 
   mos::gfx::Text text("MOS",
                       mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"),
@@ -52,7 +52,9 @@ int main() {
         models.push_back(model);
       }
       else if (type == "speaker") {
-          speakers.push_back(mos::aud::Buffer_source(path.str(), aud_assets));
+          speakers.push_back(mos::aud::Speaker(path.str(), aud_assets));
+          speakers.back().source.playing = true;
+          speakers.back().source.loop = true;
       }
       else if (type == "environment_light") {
         environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.str()));
@@ -95,8 +97,10 @@ int main() {
     center = glm::vec3(0);
     scene.lights[0].center(center);
     scene.lights[0].strength = 1000.0f;
+
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
+    aud_scene.speakers.back().source.gain = glm::sin(time);
     aud_renderer.render(aud_scene);
 
     window.poll_events();
