@@ -8,7 +8,7 @@
 #include <mos/gfx/light.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/scene.hpp>
-#include <mos/aud/speaker.hpp>
+#include <mos/aud/sound.hpp>
 #include <mos/aud/renderer.hpp>
 #include <mos/util.hpp>
 #include <mos/io/window.hpp>
@@ -28,7 +28,7 @@ int main() {
   mos::gfx::Assets gfx_assets;
   mos::aud::Assets aud_assets;
   mos::gfx::Models models;
-  mos::aud::Speakers speakers;
+  mos::aud::Sounds sounds;
 
   mos::gfx::Text text("MOS",
                       mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"),
@@ -52,9 +52,9 @@ int main() {
         models.push_back(model);
       }
       else if (type == "speaker") {
-          speakers.push_back(mos::aud::Speaker(path.str(), aud_assets));
-          speakers.back().source.playing = true;
-          speakers.back().source.loop = true;
+          sounds.push_back(mos::aud::Sound(path.str(), aud_assets));
+          sounds.back().source.playing = true;
+          sounds.back().source.loop = true;
       }
       else if (type == "environment_light") {
         environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.str()));
@@ -86,7 +86,7 @@ int main() {
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
   float time = 0.0f;
 
-  mos::aud::Scene aud_scene(speakers, {}, camera.position());
+  mos::aud::Scene aud_scene(sounds, {}, camera.position());
 
   while (!window.close()) {
     const auto start_time = std::chrono::high_resolution_clock::now();
@@ -100,7 +100,7 @@ int main() {
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
-    aud_scene.speakers.back().source.gain = glm::sin(time);
+    aud_scene.sounds.back().source.gain = glm::sin(time);
     aud_renderer.render(aud_scene);
 
     window.poll_events();
