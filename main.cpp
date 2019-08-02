@@ -8,6 +8,8 @@
 #include <mos/gfx/light.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/scene.hpp>
+#include <mos/aud/buffer_sources.hpp>
+#include <mos/aud/renderer.hpp>
 #include <mos/util.hpp>
 #include <mos/io/window.hpp>
 #include <string>
@@ -24,7 +26,10 @@ int main() {
   };
 
   mos::gfx::Assets gfx_assets;
+  mos::aud::Assets aud_assets;
   mos::gfx::Models models;
+  mos::aud::Buffer_sources speakers;
+
   mos::gfx::Text text("MOS",
                       mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"),
                       glm::translate(glm::mat4(1.0f), glm::vec3(-0.4, 0.6f, 1.0f))
@@ -46,6 +51,9 @@ int main() {
         mos::gfx::Model model = mos::gfx::Model(path.str(), gfx_assets);
         models.push_back(model);
       }
+      else if (type == "speaker") {
+          speakers.push_back(mos::aud::Buffer_source(path.str(), aud_assets));
+      }
       else if (type == "environment_light") {
         environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.str()));
       }
@@ -55,6 +63,7 @@ int main() {
   }
 
   mos::gfx::Renderer gfx_renderer(glm::vec4(0.0f), resolution);
+  mos::aud::Renderer aud_renderer;
 
 
   mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
@@ -75,6 +84,8 @@ int main() {
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
   float time = 0.0f;
 
+  mos::aud::Scene aud_scene(speakers, {}, camera.position());
+
   while (!window.close()) {
     const auto start_time = std::chrono::high_resolution_clock::now();
 
@@ -84,8 +95,10 @@ int main() {
     center = glm::vec3(0);
     scene.lights[0].center(center);
     scene.lights[0].strength = 1000.0f;
-
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
+
+    aud_renderer.render(aud_scene);
+
     window.poll_events();
     window.swap_buffers();
     frame_time = std::chrono::high_resolution_clock::now() - start_time;
