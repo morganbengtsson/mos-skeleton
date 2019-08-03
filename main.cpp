@@ -94,7 +94,7 @@ int main() {
     auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
     center.y = glm::sin(time * 0.2f);
-    center = glm::vec3(0);
+    //center = glm::vec3(0);
     scene.lights[0].center(center);
     scene.lights[0].strength = 1000.0f;
 
