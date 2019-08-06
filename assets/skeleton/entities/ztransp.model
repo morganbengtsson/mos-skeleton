@@ -1,0 +1,1 @@
+{"name": "ztransp", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -0.19999991357326508, -0.7000000476837158, 0.15000000596046448, 1.0], "mesh": "skeleton/meshes/sphere.002.mesh", "material": "skeleton/materials/transparent.material", "speaker": null, "children": [], "type": "model", "id": 140195123347976, "light": null}
