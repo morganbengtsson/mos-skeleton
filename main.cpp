@@ -51,7 +51,7 @@ int main() {
         mos::gfx::Model model = mos::gfx::Model(path.str(), gfx_assets);
         models.push_back(model);
       }
-      else if (type == "speaker") {
+      else if (type == "sound") {
           sounds.push_back(mos::aud::Sound(path.str(), aud_assets));
           sounds.back().source.playing = true;
           sounds.back().source.loop = true;
@@ -100,7 +100,7 @@ int main() {
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
-    aud_scene.sounds.back().source.gain = glm::sin(time);
+    aud_scene.sounds.back().source.position = scene.lights[0].center();
     aud_renderer.render(aud_scene);
 
     window.poll_events();
