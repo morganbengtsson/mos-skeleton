@@ -1,1 +1,0 @@
-{"name": "sphere12.006", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 8.940696716308594e-08, -0.8000000715255737, 0.15000000596046448, 1.0], "mesh": "skeleton/meshes/sphere.002.mesh", "material": "skeleton/materials/transparent.material", "speaker": null, "children": [], "type": "model", "id": 140505646833672, "light": null}

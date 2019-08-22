@@ -1,1 +1,0 @@
-{"albedo": [1.0, 1.0, 1.0], "opacity": 1.0, "transmission": 0.0, "roughness": 1.0, "metallic": 0.0, "emission": 0.0, "ambient_occlusion": 1.0, "albedo_map": "skeleton/textures/Rock08_col.jpg", "normal_map": "skeleton/textures/Ground04_nrm.png", "metallic_map": null, "roughness_map": "skeleton/textures/Rock08_rgh.jpg", "ambient_occlusion_map": null}
