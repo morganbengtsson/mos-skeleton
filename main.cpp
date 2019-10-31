@@ -74,7 +74,6 @@ int main() {
   camera.fstop = 0.1f;
 
   models.push_back(text.model());
-  gfx_renderer.load(models);
 
   mos::gfx::Scene scene(models,
                         camera,
