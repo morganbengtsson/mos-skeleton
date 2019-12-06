@@ -25,7 +25,10 @@ make
 ./mos-skeleton
 ```
 
-On Windows, create a build directory and run CMake from there:
+On Windows with Visual studio 2019 and later, with CMake support: 
+Simply open the cloned directory, and the build should be configured automatically.
+
+On older Visual studio versions, CMake might have to be invoked manually:
 
 ```
 cmake ..
