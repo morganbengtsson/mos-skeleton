@@ -64,7 +64,7 @@ int main() {
       }
   }
 
-  mos::gfx::Renderer gfx_renderer(glm::vec4(0.0f), resolution);
+  mos::gfx::Renderer gfx_renderer(resolution, 4);
   mos::aud::Renderer aud_renderer;
 
 
