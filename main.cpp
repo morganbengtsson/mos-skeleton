@@ -15,6 +15,7 @@
 #include <string>
 #include <filesystem/path.h>
 #include <glm/gtc/color_space.hpp>
+#include <glm/gtc/random.hpp>
 
 int main() {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
@@ -29,6 +30,14 @@ int main() {
   mos::aud::Assets aud_assets;
   mos::gfx::Models models;
   mos::aud::Sounds sounds;
+  mos::gfx::Particle_cloud particle_cloud;
+  for (auto i = 0; i < 10000; i++){
+    auto p = mos::gfx::Particle(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
+    p.size = glm::linearRand(0.1f, 0.20f);
+    //p.color = glm::linearRand(glm::vec4(1.0f), glm::vec4(1.0, 1.0, 1.0, 0.5));
+    p.color = glm::vec4(glm::linearRand(0.0f, 0.3f));
+    particle_cloud.particles.push_back(p);
+  }
 
   mos::gfx::Text text("MOS",
                       mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"),
@@ -80,6 +89,7 @@ int main() {
                         {lights.at(0), mos::gfx::Light(), mos::gfx::Light(), mos::gfx::Light()},
                         mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
                         {environment_lights.back(), mos::gfx::Environment_light()});
+  scene.particle_clouds = {particle_cloud};
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
@@ -88,6 +98,12 @@ int main() {
   mos::aud::Scene aud_scene(sounds, {}, camera.position());
 
   while (!window.close()) {
+    for (auto & p : scene.particle_clouds[0].particles){
+      p.position.z -= frame_time.count() * 0.2f;
+      if(p.position.z < 0.0f){
+        p.position.z = 2.0f;
+      }
+    }
     const auto start_time = std::chrono::high_resolution_clock::now();
 
     auto center = scene.lights[0].center();
@@ -95,7 +111,7 @@ int main() {
     center.y = glm::sin(time * 0.2f);
     //center = glm::vec3(0);
     scene.lights[0].center(center);
-    //scene.lights[0].strength = 1000.0f;
+    scene.lights[0].strength = (glm::sin(time * 0.5f) + 1.01f) * 100.0f;
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
