@@ -31,12 +31,15 @@ int main() {
   mos::gfx::Models models;
   mos::aud::Sounds sounds;
   mos::gfx::Particle_cloud particle_cloud;
+  //particle_cloud.emission_map = gfx_assets.texture("particle.png");
+  std::vector<float> velocities;
   for (auto i = 0; i < 10000; i++){
     auto p = mos::gfx::Particle(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
-    p.size = glm::linearRand(0.1f, 0.20f);
-    //p.color = glm::linearRand(glm::vec4(1.0f), glm::vec4(1.0, 1.0, 1.0, 0.5));
-    p.color = glm::vec4(glm::linearRand(0.0f, 0.3f));
+    p.size = glm::linearRand(0.0f, 0.20f);
+    p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
+    p.alpha = glm::linearRand(0.0f, 0.8f);
     particle_cloud.particles.push_back(p);
+    velocities.push_back(glm::linearRand(0.0f, 0.3f));
   }
 
   mos::gfx::Text text("MOS",
@@ -98,8 +101,9 @@ int main() {
   mos::aud::Scene aud_scene(sounds, {}, camera.position());
 
   while (!window.close()) {
-    for (auto & p : scene.particle_clouds[0].particles){
-      p.position.z -= frame_time.count() * 0.2f;
+    for (int i = 0; i < scene.particle_clouds[0].particles.size(); i++) {
+      auto & p = scene.particle_clouds[0].particles[i];
+      p.position.z -= frame_time.count() * velocities[i];
       if(p.position.z < 0.0f){
         p.position.z = 2.0f;
       }
@@ -109,9 +113,7 @@ int main() {
     auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
     center.y = glm::sin(time * 0.2f);
-    //center = glm::vec3(0);
     scene.lights[0].center(center);
-    scene.lights[0].strength = (glm::sin(time * 0.5f) + 1.01f) * 100.0f;
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
