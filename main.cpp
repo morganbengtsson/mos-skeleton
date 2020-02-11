@@ -30,16 +30,28 @@ int main() {
   mos::aud::Assets aud_assets;
   mos::gfx::Models models;
   mos::aud::Sounds sounds;
-  mos::gfx::Particle_cloud particle_cloud;
+  mos::gfx::Cloud point_cloud;
+  mos::gfx::Cloud line_cloud;
   //particle_cloud.emission_map = gfx_assets.texture("particle.png");
+  //line_cloud.texture = gfx_assets.texture("line.png");
   std::vector<float> velocities;
   for (auto i = 0; i < 10000; i++){
-    auto p = mos::gfx::Particle(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
+    auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
     p.size = glm::linearRand(0.0f, 0.20f);
     p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
     p.alpha = glm::linearRand(0.0f, 0.8f);
-    particle_cloud.particles.push_back(p);
+    point_cloud.points.push_back(p);
     velocities.push_back(glm::linearRand(0.0f, 0.3f));
+  }
+  for (auto i = 0; i < 1000; i++) {
+    auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
+    p.size = glm::linearRand(0.0f, 0.20f);
+    p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
+    p.alpha = glm::linearRand(0.0f, 0.8f);
+    line_cloud.points.push_back(p);
+    auto p1 = p;
+    p1.position -= glm::vec3(0.0f, 0.0f, 0.3f);
+    line_cloud.points.push_back(p1);
   }
 
   mos::gfx::Text text("MOS",
@@ -92,7 +104,8 @@ int main() {
                         {lights.at(0), mos::gfx::Light(), mos::gfx::Light(), mos::gfx::Light()},
                         mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
                         {environment_lights.back(), mos::gfx::Environment_light()});
-  scene.particle_clouds = {particle_cloud};
+  scene.point_clouds = {point_cloud};
+  scene.line_clouds ={line_cloud};
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
@@ -101,8 +114,15 @@ int main() {
   mos::aud::Scene aud_scene(sounds, {}, camera.position());
 
   while (!window.close()) {
-    for (int i = 0; i < scene.particle_clouds[0].particles.size(); i++) {
-      auto & p = scene.particle_clouds[0].particles[i];
+    for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
+      auto & p = scene.point_clouds[0].points[i];
+      p.position.z -= frame_time.count() * velocities[i];
+      if(p.position.z < 0.0f){
+        p.position.z = 2.0f;
+      }
+    }
+    for (int i = 0; i < scene.line_clouds[0].points.size(); i++) {
+      auto & p = scene.line_clouds[0].points[i];
       p.position.z -= frame_time.count() * velocities[i];
       if(p.position.z < 0.0f){
         p.position.z = 2.0f;
