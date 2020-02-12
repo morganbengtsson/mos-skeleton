@@ -95,8 +95,6 @@ int main() {
   mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
                           glm::vec3(0.0f, 0.0f, 0.85f),
                           glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
-  camera.fstop = 0.1f;
-
   models.push_back(text.model());
 
   mos::gfx::Scene scene(models,
