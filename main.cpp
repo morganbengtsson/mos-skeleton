@@ -39,7 +39,7 @@ int main() {
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
     p.size = glm::linearRand(0.0f, 0.20f);
     p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
-    p.alpha = glm::linearRand(0.0f, 0.8f);
+    p.alpha = glm::linearRand(0.5f, 0.8f);
     point_cloud.points.push_back(p);
     velocities.push_back(glm::linearRand(0.0f, 0.3f));
   }
@@ -47,7 +47,7 @@ int main() {
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
     p.size = glm::linearRand(0.0f, 0.20f);
     p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
-    p.alpha = glm::linearRand(0.0f, 0.8f);
+    p.alpha = glm::linearRand(0.5f, 0.8f);
     line_cloud.points.push_back(p);
     auto p1 = p;
     p1.position -= glm::vec3(0.0f, 0.0f, 0.3f);
