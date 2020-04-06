@@ -17,6 +17,7 @@
 #include <glm/gtc/color_space.hpp>
 #include <glm/gtc/random.hpp>
 
+
 int main() {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 1.0f;
   mos::io::Window window("Skeleton", resolution);
