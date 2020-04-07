@@ -13,7 +13,7 @@
 #include <mos/util.hpp>
 #include <mos/io/window.hpp>
 #include <string>
-#include <filesystem/path.h>
+#include <filesystem>
 #include <glm/gtc/color_space.hpp>
 #include <glm/gtc/random.hpp>
 
@@ -70,22 +70,22 @@ int main() {
   auto doc = nlohmann::json::parse(source);
   for (auto &value : doc) {
 	 std::string t = value;
-    auto path = filesystem::path(t);
+    auto path = std::filesystem::path(t);
     auto type = path.extension();
-      if (type == "model") {
-        mos::gfx::Model model = mos::gfx::Model(path.str(), gfx_assets);
+      if (type == ".model") {
+        mos::gfx::Model model = mos::gfx::Model(path.generic_string(), gfx_assets);
         models.push_back(model);
       }
-      else if (type == "sound") {
-          sounds.push_back(mos::aud::Sound(path.str(), aud_assets));
+      else if (type == ".sound") {
+          sounds.push_back(mos::aud::Sound(path.generic_string(), aud_assets));
           sounds.back().source.playing = true;
           sounds.back().source.loop = true;
       }
-      else if (type == "environment_light") {
-        environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.str()));
+      else if (type == ".environment_light") {
+        environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.generic_string()));
       }
-      else if (type == "light") {
-        lights.emplace_back(mos::gfx::Light("assets/", path.str()));
+      else if (type == ".light") {
+        lights.emplace_back(mos::gfx::Light("assets/", path.generic_string()));
       }
   }
 
