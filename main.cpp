@@ -21,11 +21,6 @@
 int main() {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 1.0f;
   mos::io::Window window("Skeleton", resolution);
-  window.key_func = [&](int key, int scancode, int action, int mods) {
-    if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
-      window.close(true);
-    }
-  };
 
   mos::gfx::Assets gfx_assets;
   mos::aud::Assets aud_assets;
@@ -33,8 +28,7 @@ int main() {
   mos::aud::Sounds sounds;
   mos::gfx::Cloud point_cloud;
   mos::gfx::Cloud line_cloud;
-  //particle_cloud.emission_map = gfx_assets.texture("particle.png");
-  //line_cloud.texture = gfx_assets.texture("line.png");
+
   std::vector<float> velocities;
   for (auto i = 0; i < 10000; i++){
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
@@ -139,10 +133,15 @@ int main() {
     aud_scene.sounds.back().source.position = scene.lights[0].center();
     aud_renderer.render(aud_scene);
 
-    window.poll_events();
+    auto input = window.poll_events();
     window.swap_buffers();
     frame_time = std::chrono::high_resolution_clock::now() - start_time;
     time += frame_time.count();
+
+    using namespace mos::io;
+    if (input.keyboard.events.erase({Keyboard::Key::Escape, Keyboard::Action::Press})){
+      window.close(true);
+    }
   }
 
   return 0;
