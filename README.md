@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/morganbengtsson/mos-skeleton/blob/master/screenshot.png)
+![Screenshot](screenshot.jpg)
 
 # MOS Skeleton
 [![Build Status](https://travis-ci.org/morganbengtsson/mos-skeleton.svg?branch=master)](https://travis-ci.org/morganbengtsson/mos-skeleton)

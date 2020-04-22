@@ -8,17 +8,18 @@
 #include <mos/gfx/light.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/scene.hpp>
-#include <mos/aud/sound.hpp>
+#include <mos/aud/sounds.hpp>
 #include <mos/aud/renderer.hpp>
+#include <mos/aud/scene.hpp>
 #include <mos/util.hpp>
 #include <mos/io/window.hpp>
 #include <string>
 #include <filesystem>
 #include <glm/gtc/color_space.hpp>
 #include <glm/gtc/random.hpp>
+#include <mos/gfx/text.hpp>
 
-
-int main() {
+auto main() -> int {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 1.0f;
   mos::io::Window window("Skeleton", resolution);
 
