@@ -29,9 +29,12 @@ auto main() -> int {
   mos::aud::Sounds sounds;
   mos::gfx::Cloud point_cloud;
   mos::gfx::Cloud line_cloud;
-
   std::vector<float> velocities;
-  for (auto i = 0; i < 10000; i++){
+
+  static constexpr int num_points = 10000;
+  static constexpr int num_lines = 1000;
+
+  for (auto i = 0; i < num_points; i++){
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
     p.size = glm::linearRand(0.0f, 0.20f);
     p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
@@ -39,7 +42,7 @@ auto main() -> int {
     point_cloud.points.push_back(p);
     velocities.push_back(glm::linearRand(0.0f, 0.3f));
   }
-  for (auto i = 0; i < 1000; i++) {
+  for (auto i = 0; i < num_lines; i++) {
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
     p.size = glm::linearRand(0.0f, 0.20f);
     p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
@@ -108,6 +111,8 @@ auto main() -> int {
   mos::aud::Scene aud_scene(sounds, {}, camera.position());
 
   while (!window.close()) {
+    const auto start_time = std::chrono::high_resolution_clock::now();
+
     for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
       auto & p = scene.point_clouds[0].points[i];
       p.position.z -= frame_time.count() * velocities[i];
@@ -122,7 +127,6 @@ auto main() -> int {
         p.position.z = 2.0f;
       }
     }
-    const auto start_time = std::chrono::high_resolution_clock::now();
 
     auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
@@ -132,7 +136,7 @@ auto main() -> int {
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
     aud_scene.sounds.back().source.position = scene.lights[0].center();
-    aud_renderer.render(aud_scene);
+    aud_renderer.render(aud_scene, frame_time.count());
 
     auto input = window.poll_events();
     window.swap_buffers();
