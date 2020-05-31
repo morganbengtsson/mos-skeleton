@@ -20,8 +20,10 @@
 #include <mos/gfx/text.hpp>
 
 auto main() -> int {
-  glm::vec2 resolution = glm::vec2(1920, 1080) / 1.0f;
+  glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
   mos::io::Window window("Skeleton", resolution);
+
+
 
   mos::gfx::Assets gfx_assets;
   mos::aud::Assets aud_assets;
@@ -42,6 +44,7 @@ auto main() -> int {
     point_cloud.points.push_back(p);
     velocities.push_back(glm::linearRand(0.0f, 0.3f));
   }
+
   for (auto i = 0; i < num_lines; i++) {
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
     p.size = glm::linearRand(0.0f, 0.20f);
@@ -101,8 +104,8 @@ auto main() -> int {
                         {lights.at(0), mos::gfx::Light(), mos::gfx::Light(), mos::gfx::Light()},
                         mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
                         {environment_lights.back(), mos::gfx::Environment_light()});
-  scene.point_clouds = {point_cloud};
-  scene.line_clouds ={line_cloud};
+  //scene.point_clouds = {point_cloud};
+  //scene.line_clouds ={line_cloud};
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
@@ -113,6 +116,7 @@ auto main() -> int {
   while (!window.close()) {
     const auto start_time = std::chrono::high_resolution_clock::now();
 
+    /*
     for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
       auto & p = scene.point_clouds[0].points[i];
       p.position.z -= frame_time.count() * velocities[i];
@@ -126,7 +130,7 @@ auto main() -> int {
       if(p.position.z < 0.0f){
         p.position.z = 2.0f;
       }
-    }
+    }*/
 
     auto center = scene.lights[0].center();
     center.x = glm::sin(time * 0.5f);
@@ -136,7 +140,7 @@ auto main() -> int {
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
     aud_scene.sounds.back().source.position = scene.lights[0].center();
-    aud_renderer.render(aud_scene, frame_time.count());
+    //aud_renderer.render(aud_scene, frame_time.count());
 
     auto input = window.poll_events();
     window.swap_buffers();
