@@ -104,6 +104,14 @@ auto main() -> int {
                         {lights.at(0), mos::gfx::Light(), mos::gfx::Light(), mos::gfx::Light()},
                         mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
                         {environment_lights.back(), mos::gfx::Environment_light()});
+
+  //Temp directional light
+  scene.directional_light
+      = mos::gfx::Directional_light{.position = glm::vec3{0.0f, 0.0f, 10.0f},
+                                    .direction = glm::vec3{0.0f, 0.0f, -1.0f},
+                                    .strength = 1.0f,
+                                    .color = glm::vec3{1.0f}};
+
   //scene.point_clouds = {point_cloud};
   //scene.line_clouds ={line_cloud};
 
