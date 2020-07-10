@@ -91,7 +91,6 @@ auto main() -> int {
   mos::gfx::Renderer gfx_renderer(resolution, 4);
   mos::aud::Renderer aud_renderer;
 
-
   mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
                           glm::vec3(0.0f, 0.0f, 0.85f),
                           glm::perspective(0.78f, resolution.x / resolution.y, 2.0f, 15.0f));
