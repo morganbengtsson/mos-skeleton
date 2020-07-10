@@ -23,8 +23,6 @@ auto main() -> int {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
   mos::io::Window window("Skeleton", resolution);
 
-
-
   mos::gfx::Assets gfx_assets;
   mos::aud::Assets aud_assets;
   mos::gfx::Models models;
@@ -96,7 +94,7 @@ auto main() -> int {
 
   mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
                           glm::vec3(0.0f, 0.0f, 0.85f),
-                          glm::perspective(0.78f, resolution.x / resolution.y, 0.1f, 100.0f));
+                          glm::perspective(0.78f, resolution.x / resolution.y, 2.0f, 15.0f));
   models.push_back(text.model());
 
   mos::gfx::Scene scene(models,
