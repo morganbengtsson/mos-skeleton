@@ -5,7 +5,7 @@
 #include <mos/gfx/renderer.hpp>
 #include <mos/gfx/assets.hpp>
 #include <mos/gfx/model.hpp>
-#include <mos/gfx/light.hpp>
+#include <mos/gfx/spot_light.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/scene.hpp>
 #include <mos/aud/sounds.hpp>
@@ -18,6 +18,7 @@
 #include <glm/gtc/color_space.hpp>
 #include <glm/gtc/random.hpp>
 #include <mos/gfx/text.hpp>
+#include <glm/gtx/io.hpp>
 
 auto main() -> int {
   glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
@@ -63,7 +64,7 @@ auto main() -> int {
                           * glm::scale(glm::mat4(1.0f), glm::vec3(0.5f)));
 
   std::vector<mos::gfx::Environment_light> environment_lights;
-  std::vector<mos::gfx::Light> lights;
+  std::vector<mos::gfx::Spot_light> lights;
 
   auto source = mos::text("assets/skeleton.level");
   auto doc = nlohmann::json::parse(source);
@@ -84,7 +85,7 @@ auto main() -> int {
         environment_lights.emplace_back(mos::gfx::Environment_light("assets/", path.generic_string()));
       }
       else if (type == ".light") {
-        lights.emplace_back(mos::gfx::Light("assets/", path.generic_string()));
+        lights.emplace_back(mos::gfx::Spot_light("assets/", path.generic_string()));
       }
   }
 
@@ -93,19 +94,19 @@ auto main() -> int {
 
   mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
                           glm::vec3(0.0f, 0.0f, 0.85f),
-                          glm::perspective(0.78f, resolution.x / resolution.y, 2.0f, 15.0f));
+                          glm::perspective(0.78f, resolution.x / resolution.y, 2.5f, 15.0f));
   models.push_back(text.model());
 
   mos::gfx::Scene scene(models,
                         camera,
-                        {lights.at(0), mos::gfx::Light(), mos::gfx::Light(), mos::gfx::Light()},
+                        {mos::gfx::Spot_light(), mos::gfx::Spot_light(), mos::gfx::Spot_light(), mos::gfx::Spot_light()},
                         mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
                         {environment_lights.back(), mos::gfx::Environment_light()});
 
   //Temp directional light
   scene.directional_light
       = mos::gfx::Directional_light{.position = glm::vec3{0.0f, 0.0f, 10.0f},
-                                    .direction = glm::vec3{0.0f, 0.0f, -1.0f},
+                                    .direction = glm::normalize(glm::vec3{0.0f, -0.3f, -1.0f}),
                                     .strength = 1.0f,
                                     .color = glm::vec3{1.0f}};
 
@@ -120,6 +121,9 @@ auto main() -> int {
 
   while (!window.close()) {
     const auto start_time = std::chrono::high_resolution_clock::now();
+
+    scene.directional_light.direction.x = glm::sin(time * 0.2f);
+    scene.directional_light.direction = glm::normalize(scene.directional_light.direction);
 
     /*
     for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
@@ -137,14 +141,14 @@ auto main() -> int {
       }
     }*/
 
-    auto center = scene.lights[0].center();
+    auto center = scene.spot_lights[0].center();
     center.x = glm::sin(time * 0.5f);
     center.y = glm::sin(time * 0.2f);
     //scene.lights[0].center(center);
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
-    aud_scene.sounds.back().source.position = scene.lights[0].center();
+    aud_scene.sounds.back().source.position = scene.spot_lights[0].center();
     //aud_renderer.render(aud_scene, frame_time.count());
 
     auto input = window.poll_events();
