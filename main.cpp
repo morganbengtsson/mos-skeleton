@@ -37,6 +37,7 @@ auto main() -> int {
 
   for (auto i = 0; i < num_points; i++){
     auto p = mos::gfx::Point(glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
+    p.position += 2.0f;
     p.size = glm::linearRand(0.0f, 0.20f);
     p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
     p.alpha = glm::linearRand(0.5f, 0.8f);
@@ -92,7 +93,7 @@ auto main() -> int {
   mos::gfx::Renderer gfx_renderer(resolution, 4);
   mos::aud::Renderer aud_renderer;
 
-  mos::gfx::Camera camera(glm::vec3(0.0f, -3.5f, 1.72f),
+  mos::gfx::Camera camera(glm::vec3(0.0f, -5.0f, 1.72f),
                           glm::vec3(0.0f, 0.0f, 0.85f),
                           glm::perspective(0.78f, resolution.x / resolution.y, 2.5f, 15.0f));
   models.push_back(text.model());
@@ -104,14 +105,15 @@ auto main() -> int {
                         {environment_lights.back(), mos::gfx::Environment_light()});
 
   //Temp directional light
+
   scene.directional_light
       = mos::gfx::Directional_light{.position = glm::vec3{0.0f, 0.0f, 10.0f},
                                     .direction = glm::normalize(glm::vec3{0.0f, -0.3f, -1.0f}),
                                     .strength = 1.0f,
                                     .color = glm::vec3{1.0f}};
 
-  //scene.point_clouds = {point_cloud};
-  //scene.line_clouds ={line_cloud};
+  scene.point_clouds = {point_cloud};
+  scene.line_clouds ={line_cloud};
 
   std::chrono::duration<float> frame_time =
       std::chrono::duration_cast<std::chrono::seconds>(std::chrono::seconds(0));
@@ -125,7 +127,7 @@ auto main() -> int {
     scene.directional_light.direction.x = glm::sin(time * 0.2f);
     scene.directional_light.direction = glm::normalize(scene.directional_light.direction);
 
-    /*
+
     for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
       auto & p = scene.point_clouds[0].points[i];
       p.position.z -= frame_time.count() * velocities[i];
@@ -139,12 +141,12 @@ auto main() -> int {
       if(p.position.z < 0.0f){
         p.position.z = 2.0f;
       }
-    }*/
+    }
 
     auto center = scene.spot_lights[0].center();
     center.x = glm::sin(time * 0.5f);
     center.y = glm::sin(time * 0.2f);
-    //scene.lights[0].center(center);
+    scene.spot_lights[0].center(center);
 
     gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
