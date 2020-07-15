@@ -1,0 +1,1 @@
+{"name": "Spot.001", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.899999976158142, 1.0], "position": [0.0, 0.0, 1.899999976158142], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": null, "material": null, "sound": null, "children": [], "type": "spot_light", "id": 139936034576904, "light": "skeleton/spot_lights/Spot.001.spot_light"}
