@@ -124,8 +124,8 @@ auto main() -> int
     while (!window.close()) {
         const auto start_time = std::chrono::high_resolution_clock::now();
 
-        scene.directional_light.direction.x = glm::sin(time * 0.2f);
-        scene.directional_light.direction = glm::normalize(scene.directional_light.direction);
+        //scene.directional_light.direction.x = glm::sin(time * 0.2f);
+        //scene.directional_light.direction = glm::normalize(scene.directional_light.direction);
 
         for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
             auto &p = scene.point_clouds[0].points[i];
