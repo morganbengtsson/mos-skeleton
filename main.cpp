@@ -142,14 +142,9 @@ auto main() -> int
             }
         }
 
-        auto center = scene.spot_lights[0].center();
-        center.x = glm::sin(time * 0.5f);
-        center.y = glm::sin(time * 0.2f);
-        scene.spot_lights[0].center(center);
-
         gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
-        aud_scene.sounds.back().source.position = scene.spot_lights[0].center();
+        aud_scene.sounds.back().source.position = scene.spot_lights[0].position();
         //aud_renderer.render(aud_scene, frame_time.count());
 
         auto input = window.poll_events();
