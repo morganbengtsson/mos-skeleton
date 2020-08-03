@@ -70,6 +70,7 @@ auto main() -> int
     std::vector<mos::gfx::Environment_light> environment_lights;
     std::vector<mos::gfx::Spot_light> spot_lights;
     mos::gfx::Directional_light directional_light;
+    mos::gfx::Camera camera;
 
     auto source = mos::text("assets/skeleton.level");
     auto doc = nlohmann::json::parse(source);
@@ -92,14 +93,14 @@ auto main() -> int
         } else if (type == ".directional_light") {
             directional_light = mos::gfx::Directional_light("assets/", path.generic_string());
         }
+        else if (type == ".camera"){
+            camera = mos::gfx::Camera("assets/", path.generic_string());
+        }
     }
 
     mos::gfx::Renderer gfx_renderer(resolution, 4);
     mos::aud::Renderer aud_renderer;
 
-    mos::gfx::Camera camera(glm::vec3(0.0f, -5.0f, 1.72f),
-                            glm::vec3(0.0f, 0.0f, 0.85f),
-                            glm::perspective(0.78f, resolution.x / resolution.y, 2.5f, 15.0f));
     models.push_back(text.model());
 
     mos::gfx::Scene scene(models,
@@ -112,8 +113,8 @@ auto main() -> int
                           {environment_lights.back(), mos::gfx::Environment_light()});
 
     scene.directional_light = directional_light;
-    scene.point_clouds = {point_cloud};
-    scene.line_clouds = {line_cloud};
+    //scene.point_clouds = {point_cloud};
+    //scene.line_clouds = {line_cloud};
 
     std::chrono::duration<float> frame_time = std::chrono::duration_cast<std::chrono::seconds>(
         std::chrono::seconds(0));
@@ -127,6 +128,7 @@ auto main() -> int
         //scene.directional_light.direction.x = glm::sin(time * 0.2f);
         //scene.directional_light.direction = glm::normalize(scene.directional_light.direction);
 
+        /*
         for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
             auto &p = scene.point_clouds[0].points[i];
             p.position.z -= frame_time.count() * velocities[i];
@@ -140,7 +142,7 @@ auto main() -> int
             if (p.position.z < 0.0f) {
                 p.position.z = 2.0f;
             }
-        }
+        }*/
 
         gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 

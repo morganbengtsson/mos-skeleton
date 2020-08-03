@@ -1,0 +1,1 @@
+{"name": "floor.001", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 0.0, 0.0, 1.0], "position": [16.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": "skeleton/meshes/floor.001.mesh", "material": "skeleton/materials/floor2.material", "sound": null, "children": [], "type": "model", "id": 140676180401672, "light": null}
