@@ -86,7 +86,7 @@ auto main() -> int
             sounds.back().source.playing = true;
             sounds.back().source.loop = true;
         } else if (type == ".environment_light") {
-            environment_lights.emplace_back(
+            environment_lights.push_back(
                 mos::gfx::Environment_light("assets/", path.generic_string()));
         } else if (type == ".spot_light") {
             spot_lights.emplace_back(mos::gfx::Spot_light("assets/", path.generic_string()));
@@ -110,7 +110,7 @@ auto main() -> int
                            mos::gfx::Spot_light(),
                            mos::gfx::Spot_light()},
                           mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
-                          {environment_lights.back(), mos::gfx::Environment_light()});
+                          {environment_lights[0], environment_lights[1]});
 
     scene.directional_light = directional_light;
     //scene.point_clouds = {point_cloud};
