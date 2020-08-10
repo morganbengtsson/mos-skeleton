@@ -47,9 +47,10 @@ auto main() -> int
         velocities.push_back(glm::linearRand(0.0f, 0.3f));
     }
 
+    constexpr float extent = 10.0f;
     for (auto i = 0; i < num_lines; i++) {
         auto p = mos::gfx::Point(
-            glm::linearRand(glm::vec3(-1.0f, -1.0f, 0.0f), glm::vec3(1.0f, 1.0f, 2.0f)));
+            glm::linearRand(glm::vec3(-extent, -extent, 0.0f), glm::vec3(extent, extent, extent/2.0f)));
         p.size = glm::linearRand(0.0f, 0.20f);
         p.color = glm::linearRand(glm::vec4(0.0f), glm::vec4(1.0));
         p.alpha = glm::linearRand(0.5f, 0.8f);
@@ -137,15 +138,17 @@ auto main() -> int
                 p.position.z = 2.0f;
             }
         }
+
         for (int i = 0; i < scene.line_clouds[0].points.size(); i++) {
             auto &p = scene.line_clouds[0].points[i];
             p.position.z -= frame_time.count() * velocities[i];
             if (p.position.z < 0.0f) {
                 p.position.z = 2.0f;
             }
-        }*/
+        }
+        */
 
-        gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
+        gfx_renderer.render({scene}, mos::hex_color(0x151F22), resolution);
 
         aud_scene.sounds.back().source.position = scene.spot_lights[0].position();
         aud_renderer.render(aud_scene, frame_time.count());
