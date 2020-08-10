@@ -125,8 +125,9 @@ auto main() -> int
     while (!window.close()) {
         const auto start_time = std::chrono::high_resolution_clock::now();
 
-        //scene.directional_light.direction.x = glm::sin(time * 0.2f);
-        //scene.directional_light.direction = glm::normalize(scene.directional_light.direction);
+        auto direction = scene.spot_lights[0].direction();
+        direction.x = glm::sin(time * 0.1f);
+        scene.spot_lights[0].direction(direction);
 
         /*
         for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
@@ -147,7 +148,7 @@ auto main() -> int
         gfx_renderer.render({scene}, glm::vec4(0.0f, 0.0f, 0.0, 0.0f), resolution);
 
         aud_scene.sounds.back().source.position = scene.spot_lights[0].position();
-        //aud_renderer.render(aud_scene, frame_time.count());
+        aud_renderer.render(aud_scene, frame_time.count());
 
         auto input = window.poll_events();
         window.swap_buffers();
