@@ -1,0 +1,1 @@
+{"name": "can", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "position": [0.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": "can/meshes/can_bevel_edgesplit.mesh", "material": "can/materials/can.material", "sound": null, "children": [], "type": "model", "id": 140408016335368, "light": null}

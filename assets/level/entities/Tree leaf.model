@@ -1,0 +1,1 @@
+{"name": "Tree leaf", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "position": [0.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": "level/meshes/Tree leaf_particleinstance.mesh", "material": "level/materials/Leaf.material", "sound": null, "children": [], "type": "model", "id": 140408283501576, "light": null}

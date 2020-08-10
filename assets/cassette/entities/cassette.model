@@ -1,0 +1,1 @@
+{"name": "cassette", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "position": [0.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": "cassette/meshes/cassette_bevel.mesh", "material": "cassette/materials/cassette.material", "sound": null, "children": [], "type": "model", "id": 140408016600072, "light": null}

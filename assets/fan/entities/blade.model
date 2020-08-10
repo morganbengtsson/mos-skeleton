@@ -1,0 +1,1 @@
+{"name": "blade", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "position": [0.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": "fan/meshes/blade_array.mesh", "material": "fan/materials/Fan.material", "sound": null, "children": [], "type": "model", "id": 140408257244680, "light": null}

@@ -1,0 +1,1 @@
+{"name": "fan", "transform": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "position": [0.0, 0.0, 0.0], "rotation": [1.0, 0.0, 0.0, 0.0], "mesh": "fan/meshes/fan_bevel_weighted normal.mesh", "material": "fan/materials/Fan.material", "sound": null, "children": ["fan/entities/blade.model"], "type": "model", "id": 140408257243144, "light": null}

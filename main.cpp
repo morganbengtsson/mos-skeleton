@@ -22,7 +22,7 @@
 
 auto main() -> int
 {
-    glm::vec2 resolution = glm::vec2(1920, 1080) / 2.0f;
+    glm::vec2 resolution = glm::vec2(1920, 1080) / 1.0f;
     mos::io::Window window("Skeleton", resolution);
 
     mos::gfx::Assets gfx_assets;
