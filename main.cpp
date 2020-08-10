@@ -148,7 +148,7 @@ auto main() -> int
         }
         */
 
-        gfx_renderer.render({scene}, mos::hex_color(0x151F22), resolution);
+        gfx_renderer.render({scene}, mos::hex_color(0x151322), resolution);
 
         aud_scene.sounds.back().source.position = scene.spot_lights[0].position();
         aud_renderer.render(aud_scene, frame_time.count());
