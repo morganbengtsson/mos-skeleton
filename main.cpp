@@ -87,7 +87,7 @@ auto main() -> int
             sounds.back().source.playing = true;
             sounds.back().source.loop = true;
         } else if (type == ".environment_light") {
-            environment_lights.push_back(
+            environment_lights.emplace_back(
                 mos::gfx::Environment_light("assets/", path.generic_string()));
         } else if (type == ".spot_light") {
             spot_lights.emplace_back(mos::gfx::Spot_light("assets/", path.generic_string()));
