@@ -27,7 +27,7 @@ auto main() -> int
         return surface;
     };
 
-    gfx::vulkan::Renderer renderer(extensions, surface_creator);
+    gfx::vulkan::Renderer renderer(800, 600, extensions, surface_creator);
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
