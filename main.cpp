@@ -61,7 +61,7 @@ auto main() -> int
     }
 
     mos::gfx::Text text("MOS",
-                        mos::gfx::Font("assets/fonts/noto_sans_regular_48.json"),
+                        mos::gfx::Font::load("assets/fonts/noto_sans_regular_48.json"),
                         glm::translate(glm::mat4(1.0f), glm::vec3(-0.4, 0.6f, 1.0f))
                             * glm::rotate(glm::mat4(1.0f),
                                           glm::half_pi<float>(),
@@ -80,7 +80,7 @@ auto main() -> int
         auto path = std::filesystem::path(t);
         auto type = path.extension();
         if (type == ".model") {
-            mos::gfx::Model model = mos::gfx::Model(path.generic_string(), gfx_assets);
+            mos::gfx::Model model = mos::gfx::Model::load(path.generic_string(), gfx_assets);
             models.push_back(model);
         } else if (type == ".sound") {
             sounds.push_back(mos::aud::Sound(path.generic_string(), aud_assets));
@@ -88,14 +88,14 @@ auto main() -> int
             sounds.back().source.loop = true;
         } else if (type == ".environment_light") {
             environment_lights.emplace_back(
-                mos::gfx::Environment_light("assets/", path.generic_string()));
+                mos::gfx::Environment_light::load("assets/", path.generic_string()));
         } else if (type == ".spot_light") {
-            spot_lights.emplace_back(mos::gfx::Spot_light("assets/", path.generic_string()));
+            spot_lights.emplace_back(mos::gfx::Spot_light::load("assets/", path.generic_string()));
         } else if (type == ".directional_light") {
-            directional_light = mos::gfx::Directional_light("assets/", path.generic_string());
+            directional_light = mos::gfx::Directional_light::load("assets/", path.generic_string());
         }
         else if (type == ".camera"){
-            camera = mos::gfx::Camera("assets/", path.generic_string());
+            camera = mos::gfx::Camera::load("assets/", path.generic_string());
         }
     }
 
