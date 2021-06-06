@@ -1,7 +1,7 @@
 ![Screenshot](screenshot.jpg)
 
 # MOS Skeleton
-[![Build Status](https://travis-ci.org/morganbengtsson/mos-skeleton.svg?branch=master)](https://travis-ci.org/morganbengtsson/mos-skeleton)
+[![CMake](https://github.com/morganbengtsson/mos-skeleton/actions/workflows/cmake.yml/badge.svg)](https://github.com/morganbengtsson/mos-skeleton/actions/workflows/cmake.yml)
 
 Example project for the [MOS library](https://github.com/morganbengtsson/mos). Provides a minimal setup, for getting a
 window with some graphics and sound up and running.
