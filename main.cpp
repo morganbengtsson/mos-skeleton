@@ -15,6 +15,7 @@
 #include <mos/gfx/scene.hpp>
 #include <mos/gfx/spot_light.hpp>
 #include <mos/gfx/text.hpp>
+#include <mos/gfx/scenes.hpp>
 #include <mos/io/window.hpp>
 #include <mos/util.hpp>
 #include <string>
@@ -148,7 +149,7 @@ auto main() -> int
         }
         */
 
-        gfx_renderer.render({scene}, mos::hex_color(0x151322), resolution);
+        gfx_renderer.render(mos::gfx::Scenes{scene}, mos::hex_color(0x151322), resolution);
 
         aud_scene.sounds.back().source.position = scene.spot_lights[0].position();
         aud_renderer.render(aud_scene, frame_time.count());
