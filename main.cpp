@@ -100,21 +100,21 @@ auto main() -> int
         }
     }
 
-    mos::gfx::Renderer gfx_renderer(resolution, 4);
-    mos::aud::Renderer aud_renderer;
+    mos::gfx::gl::Renderer gfx_renderer(resolution, 4);
+    //mos::aud::Renderer aud_renderer;
 
     models.push_back(text.model());
 
-    mos::gfx::Scene scene(models,
-                          camera,
-                          {spot_lights[0],
-                           mos::gfx::Spot_light(),
-                           mos::gfx::Spot_light(),
-                           mos::gfx::Spot_light()},
-                          mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
-                          {environment_lights[0], environment_lights[1]});
+    mos::gfx::Scenes scenes{mos::gfx::Scene(gfx_renderer.load(models),
+                                            camera,
+                                            {spot_lights[0],
+                                             mos::gfx::Spot_light(),
+                                             mos::gfx::Spot_light(),
+                                             mos::gfx::Spot_light()},
+                                            mos::gfx::Fog(glm::vec3(0.0f), glm::vec3(0.0f), 0.0f),
+                                            {environment_lights[0], environment_lights[1]})};
 
-    scene.directional_light = directional_light;
+    scenes[0].directional_light = directional_light;
     //scene.point_clouds = {point_cloud};
     //scene.line_clouds = {line_cloud};
 
@@ -127,9 +127,9 @@ auto main() -> int
     while (!window.close()) {
         const auto start_time = std::chrono::high_resolution_clock::now();
 
-        auto direction = scene.spot_lights[0].direction();
+        auto direction = scenes[0].spot_lights[0].direction();
         direction.x = glm::sin(time * 0.1f);
-        scene.spot_lights[0].direction(direction);
+        scenes[0].spot_lights[0].direction(direction);
 
         /*
         for (int i = 0; i < scene.point_clouds[0].points.size(); i++) {
@@ -149,10 +149,10 @@ auto main() -> int
         }
         */
 
-        gfx_renderer.render(mos::gfx::Scenes{scene}, mos::hex_color(0x151322), resolution);
+        gfx_renderer.render(scenes, mos::hex_color(0x151322), resolution);
 
-        aud_scene.sounds.back().source.position = scene.spot_lights[0].position();
-        aud_renderer.render(aud_scene, frame_time.count());
+        aud_scene.sounds.back().source.position = scenes[0].spot_lights[0].position();
+       // aud_renderer.render(aud_scene, frame_time.count());
 
         auto input = window.poll_events();
         window.swap_buffers();
