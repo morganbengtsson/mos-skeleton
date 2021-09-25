@@ -11,7 +11,7 @@
 #include <mos/gfx/assets.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/model.hpp>
-#include <mos/gfx/gl/renderer.hpp>
+#include <mos/gl/renderer.hpp>
 #include <mos/gfx/scene.hpp>
 #include <mos/gfx/spot_light.hpp>
 #include <mos/gfx/text.hpp>
@@ -100,7 +100,7 @@ auto main() -> int
         }
     }
 
-    mos::gfx::gl::Renderer gfx_renderer(resolution, 4);
+    mos::gl::Renderer gfx_renderer(resolution, 4);
     //mos::aud::Renderer aud_renderer;
 
     models.push_back(text.model());
