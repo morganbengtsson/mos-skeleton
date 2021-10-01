@@ -5,7 +5,7 @@
 #include <glm/gtx/io.hpp>
 #include <iostream>
 #include <json.hpp>
-#include <mos/aud/renderer.hpp>
+#include <mos/al/renderer.hpp>
 #include <mos/aud/scene.hpp>
 #include <mos/aud/sounds.hpp>
 #include <mos/gfx/assets.hpp>
