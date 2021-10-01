@@ -101,7 +101,7 @@ auto main() -> int
     }
 
     mos::gl::Renderer gfx_renderer(resolution, 4);
-    //mos::aud::Renderer aud_renderer;
+    mos::al::Renderer aud_renderer;
 
     models.push_back(text.model());
 
@@ -152,7 +152,7 @@ auto main() -> int
         gfx_renderer.render(scenes, mos::hex_color(0x151322), resolution);
 
         aud_scene.sounds.back().source.position = scenes[0].spot_lights[0].position();
-       // aud_renderer.render(aud_scene, frame_time.count());
+        aud_renderer.render(aud_scene, frame_time.count());
 
         auto input = window.poll_events();
         window.swap_buffers();
