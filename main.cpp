@@ -8,6 +8,7 @@
 #include <mos/al/renderer.hpp>
 #include <mos/aud/scene.hpp>
 #include <mos/aud/sounds.hpp>
+#include <mos/apu/scene.hpp>
 #include <mos/gfx/assets.hpp>
 #include <mos/gfx/environment_light.hpp>
 #include <mos/gfx/model.hpp>
@@ -84,7 +85,7 @@ auto main() -> int
             mos::gfx::Model model = mos::gfx::Model::load(path.generic_string(), gfx_assets);
             models.push_back(model);
         } else if (type == ".sound") {
-            sounds.push_back(mos::aud::Sound(path.generic_string(), aud_assets));
+            sounds.push_back(mos::aud::Sound::load(path.generic_string(), aud_assets));
             sounds.back().source.playing = true;
             sounds.back().source.loop = true;
         } else if (type == ".environment_light") {
@@ -122,7 +123,11 @@ auto main() -> int
         std::chrono::seconds(0));
     float time = 0.0f;
 
-    mos::aud::Scene aud_scene(sounds, {}, camera.position());
+    //mos::aud::Scene aud_scene(sounds, {}, camera.position());
+
+    mos::apu::Scene apu_scene;
+    apu_scene.sounds = aud_renderer.load(sounds);
+    apu_scene.listener = camera.position();
 
     while (!window.close()) {
         const auto start_time = std::chrono::high_resolution_clock::now();
@@ -151,8 +156,8 @@ auto main() -> int
 
         gfx_renderer.render(scenes, mos::hex_color(0x151322), resolution);
 
-        aud_scene.sounds.back().source.position = scenes[0].spot_lights[0].position();
-        aud_renderer.render(aud_scene, frame_time.count());
+        apu_scene.sounds.back().source.position = scenes[0].spot_lights[0].position();
+        aud_renderer.render(apu_scene, frame_time.count());
 
         auto input = window.poll_events();
         window.swap_buffers();
