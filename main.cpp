@@ -8,6 +8,7 @@
 #include <mos/al/renderer.hpp>
 #include <mos/aud/scene.hpp>
 #include <mos/aud/sounds.hpp>
+#include <mos/aud/sound_streams.hpp>
 #include <mos/apu/scene.hpp>
 #include <mos/gfx/assets.hpp>
 #include <mos/gfx/environment_light.hpp>
@@ -31,6 +32,7 @@ auto main() -> int
     mos::aud::Assets aud_assets;
     mos::gfx::Models models;
     mos::aud::Sounds sounds;
+    mos::aud::Sound_streams streams;
     mos::gfx::Cloud point_cloud;
     mos::gfx::Cloud line_cloud;
     std::vector<float> velocities;
@@ -88,6 +90,7 @@ auto main() -> int
             sounds.push_back(mos::aud::Sound::load(path.generic_string(), aud_assets));
             sounds.back().source.playing = true;
             sounds.back().source.loop = true;
+
         } else if (type == ".environment_light") {
             environment_lights.emplace_back(
                 mos::gfx::Environment_light::load("assets/", path.generic_string()));
@@ -100,6 +103,10 @@ auto main() -> int
             camera = mos::gfx::Camera::load("assets/", path.generic_string());
         }
     }
+
+    streams.push_back(mos::aud::Sound_stream(std::make_shared<mos::aud::Stream>("assets/skeleton/sounds/druzy.ogg")));
+    streams.back().source.playing = true;
+    //streams.back().source.loop = true;
 
     mos::gl::Renderer gfx_renderer(resolution, 4);
     mos::al::Renderer aud_renderer;
@@ -126,7 +133,8 @@ auto main() -> int
     //mos::aud::Scene aud_scene(sounds, {}, camera.position());
 
     mos::apu::Scene apu_scene;
-    apu_scene.sounds = aud_renderer.load(sounds);
+    //apu_scene.sounds = aud_renderer.load(sounds);
+    apu_scene.sound_streams = aud_renderer.load(streams);
     apu_scene.listener = camera.position();
 
     while (!window.close()) {
@@ -156,7 +164,7 @@ auto main() -> int
 
         gfx_renderer.render(scenes, mos::hex_color(0x151322), resolution);
 
-        apu_scene.sounds.back().source.position = scenes[0].spot_lights[0].position();
+        //apu_scene.sounds.back().source.position = scenes[0].spot_lights[0].position();
         aud_renderer.render(apu_scene, frame_time.count());
 
         auto input = window.poll_events();
